@@ -19,8 +19,12 @@
  */
 
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// middleware
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.json({
@@ -30,7 +34,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/conversations", (req, res) => {
-  console.log(req.body);
+  console.log(req.query.message);
+  console.log(req.query.b);
+  console.log(req.query.c);
   res.json({
     msg: "2 + 2 = 4"
   })
