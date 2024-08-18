@@ -37,7 +37,7 @@ app.post("/conversations", (req, res) => {
   console.log(req.query.message);
   console.log(req.query.b);
   console.log(req.query.c);
-  res.json({
+  res.status(202).json({
     msg: "2 + 2 = 4"
   })
 })
